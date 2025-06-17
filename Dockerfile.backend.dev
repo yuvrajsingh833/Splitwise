@@ -1,0 +1,22 @@
+FROM node:18-alpine
+
+# Set working directory
+WORKDIR /app
+
+# Copy package files
+COPY package*.json ./
+
+# Install all dependencies (including dev dependencies)
+RUN npm install
+
+# Install tsx globally for running TypeScript in development
+RUN npm install -g tsx
+
+# Create data directory for SQLite database
+RUN mkdir -p /app/data
+
+# Expose port
+EXPOSE 3001
+
+# Start the development server with hot reload
+CMD ["npm", "run", "dev:server"]

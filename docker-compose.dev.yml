@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  # Development Backend Service
+  backend-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend.dev
+    ports:
+      - "3001:3001"
+    environment:
+      - NODE_ENV=development
+      - PORT=3001
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - ./data:/app/data
+    networks:
+      - splitwise-network
+    command: npm run dev:server
+
+  # Development Frontend Service
+  frontend-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend.dev
+    ports:
+      - "5173:5173"
+    environment:
+      - VITE_API_URL=http://localhost:3001
+    volumes:
+      - .:/app
+      - /app/node_modules
+    networks:
+      - splitwise-network
+    command: npm run dev:client
+    depends_on:
+      - backend-dev
+
+networks:
+  splitwise-network:
+    driver: bridge

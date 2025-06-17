@@ -35,6 +35,14 @@ A modern, full-stack expense tracking application inspired by Splitwise, built w
 - Mobile-optimized interface
 - Beautiful color system with semantic states
 
+### ***Images**
+
+![image](https://github.com/user-attachments/assets/9988633f-5481-4216-ad0c-a41358824b68)
+![image](https://github.com/user-attachments/assets/795ccd2c-a412-4b64-8020-73f8159203d3)
+![image](https://github.com/user-attachments/assets/1bd275dd-b8bb-4709-833e-9551896db26a)
+
+
+
 ## Tech Stack
 
 ### Frontend
